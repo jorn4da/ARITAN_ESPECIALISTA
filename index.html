@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aritan Especialista | Saia do aluguel e conquiste seu imóvel</title>
+<meta name="description" content="Mais de 15 anos realizando o sonho da casa própria em Niterói e Rio de Janeiro. Simule seu financiamento MCMV ou SBPE e fale com um especialista.">
+<meta property="og:title" content="Aritan Especialista — Realize o sonho do seu imóvel">
+<meta property="og:description" content="Mais de 15 anos ajudando famílias a saírem do aluguel. Simule agora e fale com um especialista.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#062E6E; --azul-dark:#0A387D; --grafite:#1E1C1D; --off:#F3F7FA;
+  --cinza:#484546; --sucesso:#1A7F54; --erro:#C0392B; --alerta:#D97706; --wa:#25D366;
+  --azul-soft:rgba(6,46,110,.08);
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-full:9999px;
+  --max:1200px;
+  --shadow-card:0 4px 24px rgba(6,46,110,.12); --shadow-hover:0 8px 32px rgba(6,46,110,.22);
+  --dark:#12151C; --dark2:#0C0E14;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--grafite);background:var(--dark);line-height:1.6;font-size:16px;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.2;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+.tag{display:inline-block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:7px 14px;border-radius:var(--radius-full);background:rgba(143,180,255,.16);color:#9CBEFF;margin-bottom:18px}
+.tag.light{background:rgba(255,255,255,.14);color:#fff}
+h2.sec{font-size:36px;font-weight:800;margin-bottom:16px;color:#F3F7FA}
+.sec-lead{font-size:18px;color:rgba(243,247,250,.8);max-width:720px;margin-bottom:8px}
+section.dark .sec-lead{color:rgba(243,247,250,.82)}
+.center{text-align:center}
+.center .sec-lead{margin-left:auto;margin-right:auto}
+/* BOTOES */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:700;border:none;border-radius:var(--radius-md);cursor:pointer;transition:.2s;font-size:16px;text-align:center}
+.btn-blue{background:var(--azul);color:#fff;padding:16px 32px;text-transform:uppercase;letter-spacing:.01em}
+.btn-blue:hover{background:var(--azul-dark);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.btn-wa{background:var(--wa);color:#fff;padding:15px 28px}
+.btn-wa:hover{background:#1eb457;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border:1.6px solid rgba(255,255,255,.4);padding:14px 28px}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-block{width:100%}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(6,46,110,.96);backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:'Montserrat';font-weight:800;color:#fff;font-size:18px;letter-spacing:.02em;display:flex;align-items:center;gap:9px}
+.brand span{color:#8FB4FF;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.nav .btn-wa{padding:10px 18px;font-size:14px}
+/* HERO */
+.hero{background:linear-gradient(135deg,#062E6E 0%,#1E1C1D 100%);color:#fff;position:relative;overflow:hidden;padding:0}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;min-height:640px;padding-top:40px;padding-bottom:0}
+.hero h1{font-size:52px;font-weight:800;margin-bottom:20px}
+.hero h1 b{color:#8FB4FF}
+.hero p.sub{font-size:19px;color:rgba(243,247,250,.85);margin-bottom:28px;max-width:560px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.proof{display:flex;gap:26px;flex-wrap:wrap;padding-top:22px;border-top:1px solid rgba(255,255,255,.15)}
+.proof .n{font-family:'Montserrat';font-weight:800;font-size:26px;color:#fff;line-height:1}
+.proof .l{font-size:13px;color:rgba(243,247,250,.75);margin-top:4px}
+.hero-photo{align-self:end;position:relative;display:flex;justify-content:center}
+.hero-photo::after{content:"";position:absolute;bottom:0;width:86%;height:70%;background:radial-gradient(ellipse at center,rgba(143,180,255,.28),transparent 70%);z-index:0;border-radius:50%}
+.hero-photo img{position:relative;z-index:1;max-height:600px;width:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+/* DOR */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.pain{background:#fff;border:1px solid var(--azul-soft);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow-card)}
+.pain .ico{font-size:26px;margin-bottom:10px}
+.pain h3{font-size:19px;font-weight:700;margin-bottom:8px;color:var(--azul)}
+.pain p{color:var(--cinza);font-size:15px}
+/* AUTORIDADE */
+.auth{background:linear-gradient(180deg,#062E6E 0%,#0A387D 100%);color:#fff}
+.auth .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:stretch}
+.auth-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(165deg,#0A387D 0%,#062E6E 55%,#041B45 100%);display:flex;align-items:flex-end;justify-content:center;min-height:460px;border:1px solid rgba(143,180,255,.16);box-shadow:0 14px 44px rgba(0,0,0,.4)}
+.auth-photo img{max-height:480px;width:auto;margin:0;display:block;filter:none}
+.auth h2{font-size:34px;font-weight:800;margin-bottom:18px}
+.auth p{color:rgba(243,247,250,.88);margin-bottom:16px;font-size:17px}
+.auth .assino{font-family:'Montserrat';font-weight:700;font-size:17px;margin-top:8px}
+.auth .assino small{display:block;font-family:'Inter';font-weight:400;font-size:14px;color:rgba(243,247,250,.7)}
+/* BENEFICIOS */
+.ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+.ben{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:var(--radius-md);padding:22px;border:1px solid var(--azul-soft)}
+.ben .chk{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+.ben h4{font-size:17px;font-weight:700;margin-bottom:3px}
+.ben p{font-size:14.5px;color:var(--cinza)}
+/* SIMULADOR */
+.sim{background:var(--grafite);color:#fff}
+.sim-card{background:#fff;color:var(--grafite);border-radius:var(--radius-lg);box-shadow:var(--shadow-hover);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;margin-top:34px}
+.sim-form{padding:36px}
+.sim-form h3{font-size:22px;font-weight:800;color:var(--azul);margin-bottom:6px}
+.sim-form .hint{font-size:14px;color:var(--cinza);margin-bottom:20px}
+.sim-form label{display:block;font-size:13px;font-weight:600;color:var(--grafite);margin:16px 0 6px}
+.sim-form input,.sim-form select{width:100%;padding:13px 14px;border:1.5px solid #d7dde8;border-radius:var(--radius-sm);font-size:15px;font-family:'Inter';background:#fff;color:var(--grafite)}
+.sim-form input:focus,.sim-form select:focus{outline:none;border-color:var(--azul)}
+.sim-form .btn{margin-top:22px}
+.sim-res{background:linear-gradient(160deg,#062E6E,#0A387D);color:#fff;padding:36px;display:flex;flex-direction:column;justify-content:center}
+.sim-res .rlabel{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.7)}
+.sim-res .rbig{font-family:'Montserrat';font-weight:800;font-size:42px;margin:4px 0 2px;color:#fff}
+.sim-res .rbig small{font-size:18px;font-weight:600;opacity:.8}
+.sim-res .rrow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:15px}
+.sim-res .rrow b{font-family:'Montserrat';font-weight:700}
+.sim-res .disc{font-size:12px;color:rgba(255,255,255,.65);margin-top:16px;line-height:1.5}
+.sim-res .btn{margin-top:18px}
+/* PROVA SOCIAL */
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.dep{background:#fff;border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow-card);border:1px solid var(--azul-soft)}
+.dep .stars{color:#D97706;font-size:15px;letter-spacing:2px;margin-bottom:10px}
+.dep p{font-size:15px;color:var(--grafite);font-style:italic;margin-bottom:14px}
+.dep .who{display:flex;align-items:center;gap:10px}
+.dep .av{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:0 0 auto;background:var(--azul)}
+.dep .av img{width:100%;height:100%;object-fit:cover;display:block}
+.dep .who b{font-size:14px;display:block}
+.dep .who span{font-size:12px;color:var(--cinza)}
+/* BONUS */
+.bonus{background:transparent}
+.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.bcard{background:#fff;border-radius:var(--radius-lg);padding:28px;border:1px solid var(--azul-soft);box-shadow:var(--shadow-card);position:relative}
+.bcard .bt{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--alerta);margin-bottom:10px}
+.bcard h4{font-size:18px;font-weight:700;margin-bottom:8px}
+.bcard p{font-size:14.5px;color:var(--cinza)}
+.bcard .val{margin-top:14px;font-family:'Montserrat';font-weight:700;font-size:14px;color:var(--sucesso)}
+/* GARANTIA */
+.guarantee{background:transparent}
+.gbox{max-width:820px;margin:0 auto;text-align:center;background:linear-gradient(135deg,#0A387D,#12151C);color:#fff;border-radius:var(--radius-lg);padding:48px 36px;border:1px solid rgba(143,180,255,.14)}
+.gbox .shield{font-size:44px;margin-bottom:12px}
+.gbox h2{font-size:30px;font-weight:800;margin-bottom:14px}
+.gbox p{color:rgba(243,247,250,.85);font-size:17px;max-width:600px;margin:0 auto}
+/* FAQ */
+.faq{max-width:820px;margin:36px auto 0}
+.qa{background:#fff;border:1px solid var(--azul-soft);border-radius:var(--radius-md);margin-bottom:12px;overflow:hidden}
+.qa summary{cursor:pointer;list-style:none;padding:20px 22px;font-family:'Montserrat';font-weight:700;font-size:16.5px;color:var(--azul);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-size:24px;color:var(--azul);transition:.2s}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa .a{padding:0 22px 20px;color:var(--cinza);font-size:15.5px}
+/* FORM */
+.lead{background:linear-gradient(180deg,#0A387D,#062E6E);color:#fff}
+.lead .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.lead h2{font-size:34px;font-weight:800;margin-bottom:14px}
+.lead .lp{color:rgba(243,247,250,.85);font-size:17px;margin-bottom:20px}
+.lead .lcheck{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:15px;color:rgba(243,247,250,.92)}
+.lead .lcheck .c{color:#8FB4FF;font-weight:800}
+.formcard{background:#fff;color:var(--grafite);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-hover)}
+.formcard h3{font-size:20px;font-weight:800;color:var(--azul);margin-bottom:4px}
+.formcard .sm{font-size:14px;color:var(--cinza);margin-bottom:14px}
+.formcard label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+.formcard input,.formcard select{width:100%;padding:13px 14px;border:1.5px solid #d7dde8;border-radius:var(--radius-sm);font-size:15px;font-family:'Inter'}
+.formcard input:focus,.formcard select:focus{outline:none;border-color:var(--azul)}
+.formcard input.invalid{border-color:var(--erro)}
+.err-msg{display:none;color:var(--erro);font-size:12.5px;margin-top:5px}
+.formcard input.invalid+.err-msg{display:block}
+.formcard .btn{margin-top:20px}
+.privacy{font-size:12.5px;color:var(--cinza);text-align:center;margin-top:12px}
+.form-ok{display:none;text-align:center;padding:20px 0}
+.form-ok .ck{width:60px;height:60px;border-radius:50%;background:var(--sucesso);color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.form-ok h3{color:var(--sucesso)}
+/* CTA FINAL */
+.final{background:var(--grafite);color:#fff;text-align:center}
+.final h2{font-size:36px;font-weight:800;margin-bottom:14px}
+.final p{color:rgba(243,247,250,.82);font-size:18px;max-width:640px;margin:0 auto 26px}
+.final .micro{font-size:13px;color:rgba(243,247,250,.6);margin-top:14px}
+/* FOOTER */
+footer{background:#0a0a0b;color:rgba(243,247,250,.7);padding:48px 0 28px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:28px}
+footer .brand{color:#fff;margin-bottom:12px}
+footer p{font-size:14px;margin-bottom:8px}
+footer h5{font-family:'Montserrat';color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+footer a{display:inline-flex;align-items:center;gap:8px;font-size:14px;margin-bottom:9px;transition:.2s}
+footer a:hover{color:#8FB4FF}
+.soc{display:flex;gap:12px;margin-top:6px}
+.soc a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin:0}
+.soc a:hover{background:var(--azul)}
+.soc svg{width:20px;height:20px;fill:#fff}
+footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* WHATSAPP FLUTUANTE */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:80;background:var(--wa);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.3);animation:pulse 2.4s infinite}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+/* RESPONSIVO */
+@media(max-width:900px){
+  section{padding:56px 0}
+  .hero .wrap{grid-template-columns:1fr;min-height:auto;text-align:center;padding-top:32px}
+  .hero h1{font-size:36px}
+  .hero p.sub{margin-left:auto;margin-right:auto}
+  .hero-cta,.proof{justify-content:center}
+  .hero-photo{order:-1;margin-top:8px}
+  .hero-photo img{max-height:360px}
+  .auth .wrap,.lead .wrap,.sim-card{grid-template-columns:1fr}
+  .auth-photo{display:none}
+  .pain-grid,.dep-grid,.bonus-grid{grid-template-columns:1fr}
+  .ben-grid{grid-template-columns:1fr}
+  h2.sec,.auth h2,.lead h2,.final h2{font-size:28px}
+  footer .cols{grid-template-columns:1fr}
+  .nav .brand span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">ARITAN <span>Especialista</span></div>
+    <a class="btn btn-wa" href="#" data-wa>WhatsApp</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="tag light">+15 anos realizando sonhos em Niterói e RJ</span>
+      <h1>De inquilino a <b>proprietário</b> — sem precisar ter todo o dinheiro agora.</h1>
+      <p class="sub">Você trabalha, tem renda e ainda paga aluguel todo mês. Vou te mostrar, em poucos minutos, como o seu perfil pode conquistar o imóvel próprio com as condições certas de financiamento.</p>
+      <div class="hero-cta">
+        <a class="btn btn-blue" href="#form">Quero minhas condições exclusivas</a>
+        <a class="btn btn-ghost" href="#simulador">Simular meu financiamento</a>
+      </div>
+      <div class="proof">
+        <div><div class="n">+15</div><div class="l">anos de mercado</div></div>
+        <div><div class="n">+500</div><div class="l">famílias atendidas</div></div>
+        <div><div class="n">MCMV</div><div class="l">e SBPE (CEF)</div></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="img/aritan.png" alt="Aritan, especialista imobiliário">
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section>
+  <div class="wrap center">
+    <span class="tag">A real sobre continuar no aluguel</span>
+    <h2 class="sec">Cada mês de aluguel é um mês a menos de patrimônio seu</h2>
+    <p class="sec-lead">Você já sabe disso. Mas talvez ninguém tenha te mostrado, com clareza, o que está te travando e o que já é possível hoje.</p>
+    <div class="pain-grid">
+      <div class="pain"><div class="ico">📉</div><h3>Dinheiro que some</h3><p>O aluguel sai todo mês, o reajuste chega todo ano, e nada disso vira patrimônio da sua família.</p></div>
+      <div class="pain"><div class="ico">🤔</div><h3>Acha que é difícil</h3><p>Medo da aprovação, dúvida sobre a entrada, insegurança com a documentação. Quase sempre é mais simples do que parece.</p></div>
+      <div class="pain"><div class="ico">⏳</div><h3>Esperar custa caro</h3><p>Enquanto você espera "o momento certo", o imóvel valoriza. Quem esperou ontem paga mais caro hoje.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORIDADE + HISTORIA -->
+<section class="auth">
+  <div class="wrap">
+    <div class="auth-photo"><img src="img/aritan.png" alt="Aritan"></div>
+    <div class="auth-copy">
+      <span class="tag light">Quem vai te orientar</span>
+      <h2>Mais de 15 anos ajudando famílias a saírem do aluguel</h2>
+      <p>Eu sou o Aritan. Há mais de 15 anos ajudo pessoas comuns — assalariados, autônomos, servidores e empresários — a darem o passo que muita gente acha impossível: conquistar o próprio imóvel em Niterói e no Rio de Janeiro.</p>
+      <p>Já vi centenas de famílias que achavam que "não iam conseguir" pegarem as chaves do primeiro apartamento. Não vendo imóvel no empurrão: eu analiso o seu perfil, mostro os números reais e te oriento na decisão certa para o seu momento.</p>
+      <p>Especialista em crédito imobiliário, FGTS, Minha Casa Minha Vida e financiamento SBPE pela Caixa. Meu trabalho é transformar o dinheiro que hoje some no aluguel em patrimônio para a sua família.</p>
+      <div class="assino">Aritan — Especialista Imobiliário<small>Niterói e Rio de Janeiro · CRECI (informar)</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section>
+  <div class="wrap center">
+    <span class="tag">O que muda quando você decide</span>
+    <h2 class="sec">Não é só um imóvel. É o rumo da sua história.</h2>
+    <p class="sec-lead">Cada item abaixo é pensado para o seu perfil: renda a partir de R$ 5 mil, buscando segurança, conforto e crescimento de patrimônio.</p>
+    <div class="ben-grid">
+      <div class="ben"><div class="chk">✓</div><div><h4>Parcela no lugar do aluguel</h4><p>Em muitos casos a parcela cabe no que você já paga de aluguel — só que agora é seu.</p></div></div>
+      <div class="ben"><div class="chk">✓</div><div><h4>Use seu FGTS como entrada</h4><p>O dinheiro parado no FGTS pode virar o ponto de partida da sua conquista.</p></div></div>
+      <div class="ben"><div class="chk">✓</div><div><h4>Regiões valorizadas</h4><p>Endereços com boa localização, perto de serviços, que valorizam com o tempo.</p></div></div>
+      <div class="ben"><div class="chk">✓</div><div><h4>Análise sem custo e sem CPF exposto</h4><p>Faço a análise do seu perfil antes de qualquer compromisso, de forma confidencial.</p></div></div>
+      <div class="ben"><div class="chk">✓</div><div><h4>MCMV e SBPE</h4><p>Escolho o programa certo para a sua renda: Minha Casa Minha Vida ou financiamento SBPE pela Caixa.</p></div></div>
+      <div class="ben"><div class="chk">✓</div><div><h4>Patrimônio para a família</h4><p>Um imóvel que fica, que valoriza e que você deixa para os seus filhos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULADOR -->
+<section class="sim" id="simulador">
+  <div class="wrap center">
+    <span class="tag light">Faça você mesmo, sem compromisso</span>
+    <h2 class="sec" style="color:#fff">Simule seu financiamento em 30 segundos</h2>
+    <p class="sec-lead">Estimativa com base nos perfis Minha Casa Minha Vida (Faixa 3 e Classe Média) e SBPE. Ideal para renda familiar a partir de R$ 5 mil.</p>
+  </div>
+  <div class="wrap">
+    <div class="sim-card">
+      <div class="sim-form">
+        <h3>Seus dados</h3>
+        <p class="hint">Ajuste os campos e veja a estimativa ao lado.</p>
+        <label for="s-perfil">Programa / perfil de renda</label>
+        <select id="s-perfil">
+          <option value="mcmv3">MCMV Faixa 3 — renda até R$ 8.600</option>
+          <option value="mcmv4">MCMV Classe Média — renda até R$ 12.000</option>
+          <option value="sbpe" selected>SBPE (Caixa) — renda acima de R$ 12.000</option>
+        </select>
+        <label for="s-valor">Valor do imóvel (R$)</label>
+        <input id="s-valor" type="text" inputmode="numeric" value="350.000">
+        <label for="s-entrada">Entrada / FGTS disponível (R$)</label>
+        <input id="s-entrada" type="text" inputmode="numeric" value="35.000">
+        <label for="s-prazo">Prazo (meses)</label>
+        <select id="s-prazo">
+          <option value="240">240 (20 anos)</option>
+          <option value="300">300 (25 anos)</option>
+          <option value="360" selected>360 (30 anos)</option>
+          <option value="420">420 (35 anos)</option>
+        </select>
+        <button class="btn btn-blue btn-block" id="s-calc">Recalcular estimativa</button>
+      </div>
+      <div class="sim-res">
+        <div class="rlabel">1ª parcela estimada</div>
+        <div class="rbig"><small>R$</small> <span id="r-parcela">–</span></div>
+        <div class="rrow"><span>Valor financiado</span><b id="r-fin">–</b></div>
+        <div class="rrow"><span>Taxa de referência</span><b id="r-taxa">–</b></div>
+        <div class="rrow"><span>Renda sugerida</span><b id="r-renda">–</b></div>
+        <p class="disc">Simulação ilustrativa (tabela Price), com taxas de referência de mercado. Os valores, taxas e condições reais dependem de análise de crédito e podem mudar. A renda sugerida considera comprometimento de até 30%.</p>
+        <a class="btn btn-wa btn-block" href="#" data-wa data-wa-ctx="simulador">Quero a simulação real no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section>
+  <div class="wrap center">
+    <span class="tag">Quem já saiu do aluguel</span>
+    <h2 class="sec">Famílias que achavam que não iam conseguir</h2>
+    <p class="sec-lead">Histórias de quem deu o passo. Peça para o Aritan te mostrar casos parecidos com o seu perfil.</p>
+    <div class="dep-grid">
+      <div class="dep"><div class="stars">★★★★★</div><p>"Ficamos anos pagando aluguel achando que era impossível. O Aritan mostrou que nosso FGTS já dava a entrada. Hoje estamos no nosso apartamento."</p><div class="who"><div class="av"><img src="img/dep1.jpg" alt="Carlos e Juliana"></div><div><b>Carlos e Juliana</b><span>Niterói · 1º imóvel</span></div></div></div>
+      <div class="dep"><div class="stars">★★★★★</div><p>"Achávamos que nosso nome ia travar tudo. Fizemos a análise com calma e deu certo. Atendimento honesto, sem pressão nenhuma."</p><div class="who"><div class="av"><img src="img/dep2.jpg" alt="Rafael e Bruna"></div><div><b>Rafael e Bruna</b><span>São Gonçalo · financiamento SBPE</span></div></div></div>
+      <div class="dep"><div class="stars">★★★★★</div><p>"Queria investir em imóvel para valorizar. Ele me explicou tudo, os números na mão, e escolhi com segurança. Recomendo demais."</p><div class="who"><div class="av"><img src="img/dep3.jpg" alt="Patrícia A."></div><div><b>Patrícia A.</b><span>Rio de Janeiro · investimento</span></div></div></div>
+    </div>
+    <p class="sec-lead center" style="font-size:13px;margin-top:16px;color:rgba(243,247,250,.5)">Depoimentos ilustrativos de perfis de clientes. Substitua por casos reais antes de publicar.</p>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="bonus">
+  <div class="wrap center">
+    <span class="tag">Ao falar comigo, você recebe</span>
+    <h2 class="sec">Muito mais do que uma cotação</h2>
+    <div class="bonus-grid">
+      <div class="bcard"><div class="bt">Incluso</div><h4>Simulação personalizada</h4><p>Análise completa do seu perfil de crédito com as melhores condições disponíveis para a sua renda.</p><div class="val">Sem custo</div></div>
+      <div class="bcard"><div class="bt">Incluso</div><h4>Checklist de documentação</h4><p>A lista exata do que você precisa reunir para não perder tempo nem travar o processo na burocracia.</p><div class="val">Sem custo</div></div>
+      <div class="bcard"><div class="bt">Incluso</div><h4>Consultoria de FGTS e MCMV</h4><p>Verifico se você se qualifica para o Minha Casa Minha Vida ou outros programas com taxa reduzida.</p><div class="val">Sem custo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="gbox">
+      <div class="shield">🛡️</div>
+      <h2>Compromisso sem risco</h2>
+      <p>Falar comigo não significa assinar nada. Não vou te ligar 10 vezes no mesmo dia nem te pressionar com urgência falsa. Você recebe as informações, tira suas dúvidas e decide com tranquilidade, no seu tempo. A análise é confidencial e não aparece no seu CPF.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap center">
+    <span class="tag">Antes de você perguntar</span>
+    <h2 class="sec">Dúvidas mais comuns</h2>
+  </div>
+  <div class="wrap">
+    <div class="faq">
+      <details class="qa"><summary>Não tenho a entrada completa. Consigo mesmo assim?</summary><div class="a">Na maioria dos casos o FGTS cobre a entrada, muitas vezes com folga. Faço uma análise gratuita antes de você assumir qualquer compromisso para mostrar exatamente o que já é possível.</div></details>
+      <details class="qa"><summary>Meu nome pode ter restrição. Dá para financiar?</summary><div class="a">É mais comum do que parece e nem sempre impede. Antes de cravar qualquer conclusão, fazemos a simulação juntos. A análise é confidencial e sem custo.</div></details>
+      <details class="qa"><summary>Minha renda é acima de R$ 5 mil. Em qual programa eu entro?</summary><div class="a">Depende da sua renda e do valor do imóvel. Pode ser MCMV Faixa 3, a nova faixa Classe Média ou o financiamento SBPE pela Caixa. Eu identifico o melhor caminho para o seu perfil.</div></details>
+      <details class="qa"><summary>Vou esperar os juros baixarem. Não é melhor?</summary><div class="a">Enquanto os juros oscilam, os imóveis valorizam. Quem esperou em anos anteriores acabou pagando bem mais caro. Quase sempre o custo de esperar é maior do que o custo dos juros.</div></details>
+      <details class="qa"><summary>Como funciona depois que eu entro em contato?</summary><div class="a">Você conversa comigo, recebe a simulação personalizada e decide com calma. Sem pressão e sem compromisso obrigatório.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="lead" id="form">
+  <div class="wrap">
+    <div class="lead-copy">
+      <span class="tag light">Fale com um especialista</span>
+      <h2>Receba suas condições exclusivas</h2>
+      <p class="lp">Preencha os dados e eu te chamo no WhatsApp com uma análise feita para o seu perfil. Rápido, confidencial e sem compromisso.</p>
+      <div class="lcheck"><span class="c">✓</span> Resposta em minutos no WhatsApp</div>
+      <div class="lcheck"><span class="c">✓</span> Análise gratuita do seu perfil de crédito</div>
+      <div class="lcheck"><span class="c">✓</span> Sem pressão, você decide com calma</div>
+    </div>
+    <div class="formcard">
+      <form id="leadForm" onsubmit="return enviarLead(event)">
+        <h3>Comece agora</h3>
+        <p class="sm">É gratuito e leva menos de 1 minuto.</p>
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" type="text" placeholder="Nome completo" required>
+        <label for="fone">WhatsApp (com DDD)</label>
+        <input id="fone" name="fone" type="tel" inputmode="numeric" maxlength="16" placeholder="(21) 90000-0000" required>
+        <span class="err-msg" id="fone-err">Número inválido. Use (XX) 9XXXX-XXXX</span>
+        <label for="objetivo">Seu objetivo</label>
+        <select id="objetivo" name="objetivo" required>
+          <option value="" disabled selected>Selecione</option>
+          <option>Conquistar meu primeiro imóvel</option>
+          <option>Trocar de imóvel / região melhor</option>
+          <option>Investir em imóvel para valorizar</option>
+          <option>Ainda não decidi / quero ver opções</option>
+        </select>
+        <label for="renda">Renda familiar</label>
+        <select id="renda" name="renda" required>
+          <option value="" disabled selected>Selecione a renda familiar</option>
+          <option>De R$ 5.000 a R$ 8.600</option>
+          <option>De R$ 8.600 a R$ 12.000</option>
+          <option>De R$ 12.000 a R$ 20.000</option>
+          <option>Acima de R$ 20.000</option>
+        </select>
+        <button type="submit" class="btn btn-blue btn-block" id="leadBtn">Receber condições exclusivas</button>
+        <p class="privacy">🔒 Seus dados estão seguros. Sem spam. Ao enviar você concorda com a <a href="politica-de-privacidade.html" style="color:var(--azul);text-decoration:underline">Política de Privacidade</a>.</p>
+      </form>
+      <div class="form-ok" id="formOk">
+        <div class="ck">✓</div>
+        <h3>Recebido!</h3>
+        <p class="sm">Já vou te chamar no WhatsApp com as condições para o seu perfil. Se preferir, fale agora comigo.</p>
+        <a class="btn btn-wa btn-block" href="#" data-wa style="margin-top:14px">Falar agora no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <span class="tag light">Seu próximo passo</span>
+    <h2>Você já pagou aluguel por tempo demais</h2>
+    <p>Fale comigo agora e veja, em poucos minutos, se você já tem o que precisa para sair do aluguel e conquistar o seu imóvel.</p>
+    <a class="btn btn-wa" href="#" data-wa style="font-size:17px;padding:17px 34px">Falar com o Aritan agora</a>
+    <p class="micro">Atendimento gratuito · Sem compromisso · Você decide com calma</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">ARITAN <span>Especialista</span></div>
+        <p>Mais de 15 anos realizando o sonho da casa própria em Niterói e no Rio de Janeiro. Crédito imobiliário, MCMV, FGTS e SBPE.</p>
+        <div class="soc">
+          <a href="https://instagram.com/aritan_especialista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.96-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg></a>
+          <a href="https://tiktok.com/@aritan_especialista" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.53 2.53 0 1 1-2.53-2.53c.26 0 .5.04.74.11V9.8a5.7 5.7 0 0 0-.74-.05 5.63 5.63 0 1 0 5.63 5.63V9.01a7.34 7.34 0 0 0 4.29 1.37V7.28a4.28 4.28 0 0 1-3.23-1.46z"/></svg></a>
+          <a href="https://facebook.com/aritanespecialista" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <a href="#" data-wa>WhatsApp: (21) 95943-4519</a>
+        <a href="tel:+5521959434519">Telefone: (21) 95943-4519</a>
+        <a href="mailto:imoveisjornada@gmail.com">imoveisjornada@gmail.com</a>
+        <p>Niterói · Rio de Janeiro</p>
+      </div>
+      <div>
+        <h5>Links</h5>
+        <a href="#simulador">Simulador de financiamento</a>
+        <a href="#form">Fale com um especialista</a>
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+      </div>
+    </div>
+    <div class="base">
+      <span>© <span id="ano"></span> Aritan Especialista. Todos os direitos reservados.</span>
+      <span>Imagens e condições sujeitas a análise de crédito e disponibilidade.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="#" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.15a11.87 11.87 0 0 1-1.59-5.95C.15 5.32 5.5 0 12.06 0a11.82 11.82 0 0 1 8.42 3.49 11.82 11.82 0 0 1 3.49 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.13c1.68.99 3.28 1.58 5.4 1.58 5.45 0 9.9-4.43 9.9-9.88a9.88 9.88 0 0 0-16.86-6.99A9.82 9.82 0 0 0 2.16 11.9c0 2.2.64 3.85 1.72 5.58l-1 3.64 3.72-.99zm11.36-5.53c-.07-.12-.26-.19-.55-.34-.29-.14-1.7-.84-1.97-.94-.26-.1-.46-.14-.65.14-.19.29-.74.94-.91 1.13-.17.19-.34.22-.62.07-.29-.14-1.22-.45-2.32-1.44a8.7 8.7 0 0 1-1.6-2c-.17-.29-.02-.44.13-.59.13-.13.29-.34.43-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.65-1.57-.9-2.15-.23-.56-.47-.48-.65-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2 3.06 4.85 4.29.68.29 1.2.47 1.61.6.68.22 1.29.19 1.78.11.54-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36z"/></svg></a>
+
+<script>
+(function(){
+  var WA='5521959434519';
+  function msg(ctx){
+    var n=(document.getElementById('nome')||{}).value||'';
+    var base='Olá Aritan! Vim pela sua página e quero saber as condições para conquistar meu imóvel.';
+    if(ctx==='simulador') base='Olá Aritan! Fiz a simulação na sua página e quero a análise real do meu financiamento.';
+    if(n) base+=' Meu nome é '+n+'.';
+    return base;
+  }
+  function waLink(ctx){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(msg(ctx));}
+  document.querySelectorAll('[data-wa]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();window.open(waLink(a.getAttribute('data-wa-ctx')),'_blank');});
+  });
+  document.getElementById('ano').textContent=new Date().getFullYear();
+
+  // Máscara de telefone
+  var fone=document.getElementById('fone');
+  if(fone){fone.addEventListener('input',function(){
+    var v=this.value.replace(/\D/g,'').slice(0,11);
+    if(v.length>10){v=v.replace(/^(\d\d)(\d{5})(\d{0,4}).*/,'($1) $2-$3');}
+    else if(v.length>6){v=v.replace(/^(\d\d)(\d{4,5})(\d{0,4}).*/,'($1) $2-$3');}
+    else if(v.length>2){v=v.replace(/^(\d\d)(\d{0,5})/,'($1) $2');}
+    else if(v.length>0){v=v.replace(/^(\d*)/,'($1');}
+    this.value=v;this.classList.remove('invalid');
+  });}
+  function foneValido(v){return v.replace(/\D/g,'').length>=10;}
+
+  window.enviarLead=function(ev){
+    ev.preventDefault();
+    var f=document.getElementById('fone');
+    if(!foneValido(f.value)){f.classList.add('invalid');f.focus();return false;}
+    var n=document.getElementById('nome').value.trim();
+    var obj=document.getElementById('objetivo').value;
+    var r=document.getElementById('renda').value;
+    var btn=document.getElementById('leadBtn'); if(btn){btn.disabled=true;btn.textContent='Enviando...';}
+    if(window.dataLayer)dataLayer.push({event:'generate_lead',form_origin:'aritan-lp'});
+    if(window.fbq)fbq('track','Lead');
+    function ok(){document.getElementById('leadForm').style.display='none';document.getElementById('formOk').style.display='block';}
+    fetch('https://formsubmit.co/ajax/imoveisjornada@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Novo lead | Aritan Especialista',Nome:n,WhatsApp:f.value,Objetivo:obj,'Renda familiar':r,Origem:location.href,_template:'table',_captcha:'false'})})
+    .then(function(res){return res.json();}).then(function(){ok();})
+    .catch(function(){
+      var t='Olá Aritan! Quero minhas condições exclusivas.\nNome: '+n+'\nWhatsApp: '+f.value+'\nObjetivo: '+obj+'\nRenda: '+r;
+      window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank');ok();
+    });
+    return false;
+  };
+
+  // SIMULADOR MCMV / SBPE
+  var FAIXAS={
+    mcmv3:{taxa:0.0866, label:'8,66% a.a. (MCMV Faixa 3)'},
+    mcmv4:{taxa:0.10,   label:'10,0% a.a. (MCMV Classe Média)'},
+    sbpe:{taxa:0.1149,  label:'11,49% a.a. (SBPE)'}
+  };
+  function num(s){return parseFloat((s||'').replace(/\./g,'').replace(',','.').replace(/[^\d.]/g,''))||0;}
+  function brl(v){return v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function brl0(v){return v.toLocaleString('pt-BR',{maximumFractionDigits:0});}
+  function maskMoney(el){el.addEventListener('input',function(){var d=this.value.replace(/\D/g,'');this.value=d?parseInt(d,10).toLocaleString('pt-BR'):'';calc();});}
+  function calc(){
+    var perfil=document.getElementById('s-perfil').value;
+    var valor=num(document.getElementById('s-valor').value);
+    var entrada=num(document.getElementById('s-entrada').value);
+    var n=parseInt(document.getElementById('s-prazo').value,10);
+    var taxaAA=FAIXAS[perfil].taxa;
+    var i=Math.pow(1+taxaAA,1/12)-1;
+    var pv=Math.max(valor-entrada,0);
+    var parcela=pv>0?(pv*i/(1-Math.pow(1+i,-n))):0;
+    document.getElementById('r-parcela').textContent=parcela?brl(parcela):'–';
+    document.getElementById('r-fin').textContent='R$ '+brl0(pv);
+    document.getElementById('r-taxa').textContent=FAIXAS[perfil].label;
+    document.getElementById('r-renda').textContent=parcela?('R$ '+brl0(parcela/0.30)):'–';
+  }
+  ['s-valor','s-entrada'].forEach(function(id){maskMoney(document.getElementById(id));});
+  document.getElementById('s-perfil').addEventListener('change',calc);
+  document.getElementById('s-prazo').addEventListener('change',calc);
+  document.getElementById('s-calc').addEventListener('click',function(e){e.preventDefault();calc();});
+  calc();
+})();
+</script>
+</body>
+</html>
