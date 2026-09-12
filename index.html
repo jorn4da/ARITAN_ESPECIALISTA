@@ -148,9 +148,12 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(6,46,110,.96);backdr
 .formcard label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
 .formcard input,.formcard select{width:100%;padding:13px 14px;border:1.5px solid #d7dde8;border-radius:var(--radius-sm);font-size:15px;font-family:'Inter'}
 .formcard input:focus,.formcard select:focus{outline:none;border-color:var(--azul)}
-.formcard input.invalid{border-color:var(--erro)}
-.err-msg{display:none;color:var(--erro);font-size:12.5px;margin-top:5px}
-.formcard input.invalid+.err-msg{display:block}
+.formcard input.valid{border-color:#25A35A}
+.formcard input.invalid{border-color:#E5484D;box-shadow:0 0 0 3px rgba(229,72,77,.14)}
+.err-msg{display:none;font-size:12.5px;color:#E5484D;font-weight:600;margin-top:6px}
+.formcard input.invalid ~ .err-msg{display:block}
+.ok-msg{display:none;font-size:12.5px;color:#1E8E4E;font-weight:600;margin-top:6px}
+.formcard input.valid ~ .ok-msg{display:block}
 .formcard .btn{margin-top:20px}
 .privacy{font-size:12.5px;color:var(--cinza);text-align:center;margin-top:12px}
 .form-ok{display:none;text-align:center;padding:20px 0}
@@ -394,7 +397,8 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
         <input id="nome" name="nome" type="text" placeholder="Nome completo" required>
         <label for="fone">WhatsApp (com DDD)</label>
         <input id="fone" name="fone" type="tel" inputmode="numeric" maxlength="16" placeholder="(21) 90000-0000" required>
-        <span class="err-msg" id="fone-err">Número inválido. Use (XX) 9XXXX-XXXX</span>
+        <span class="err-msg" id="fone-err">Número inválido. Confira o DDD e use (XX) 9XXXX-XXXX</span>
+        <span class="ok-msg" id="fone-ok"></span>
         <label for="objetivo">Seu objetivo</label>
         <select id="objetivo" name="objetivo" required>
           <option value="" disabled selected>Selecione</option>
@@ -443,9 +447,9 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
         <div class="brand">ARITAN <span>Especialista</span></div>
         <p>Mais de 15 anos realizando o sonho da casa própria em Niterói e no Rio de Janeiro. Crédito imobiliário, MCMV, FGTS e SBPE.</p>
         <div class="soc">
-          <a href="https://instagram.com/aritan_especialista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.96-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg></a>
-          <a href="https://tiktok.com/@aritan_especialista" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.53 2.53 0 1 1-2.53-2.53c.26 0 .5.04.74.11V9.8a5.7 5.7 0 0 0-.74-.05 5.63 5.63 0 1 0 5.63 5.63V9.01a7.34 7.34 0 0 0 4.29 1.37V7.28a4.28 4.28 0 0 1-3.23-1.46z"/></svg></a>
-          <a href="https://facebook.com/aritanespecialista" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/aritan_especialista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.96-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg></a>
+          <a href="https://www.tiktok.com/@aritan_especialista" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.53 2.53 0 1 1-2.53-2.53c.26 0 .5.04.74.11V9.8a5.7 5.7 0 0 0-.74-.05 5.63 5.63 0 1 0 5.63 5.63V9.01a7.34 7.34 0 0 0 4.29 1.37V7.28a4.28 4.28 0 0 1-3.23-1.46z"/></svg></a>
+          <a href="https://www.facebook.com/search/top?q=Aritan%20Especialista" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
         </div>
       </div>
       <div>
@@ -487,17 +491,18 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
   });
   document.getElementById('ano').textContent=new Date().getFullYear();
 
-  // Máscara de telefone
-  var fone=document.getElementById('fone');
-  if(fone){fone.addEventListener('input',function(){
-    var v=this.value.replace(/\D/g,'').slice(0,11);
-    if(v.length>10){v=v.replace(/^(\d\d)(\d{5})(\d{0,4}).*/,'($1) $2-$3');}
-    else if(v.length>6){v=v.replace(/^(\d\d)(\d{4,5})(\d{0,4}).*/,'($1) $2-$3');}
-    else if(v.length>2){v=v.replace(/^(\d\d)(\d{0,5})/,'($1) $2');}
-    else if(v.length>0){v=v.replace(/^(\d*)/,'($1');}
-    this.value=v;this.classList.remove('invalid');
-  });}
-  function foneValido(v){return v.replace(/\D/g,'').length>=10;}
+  // Máscara e validação de telefone celular brasileiro: (XX) 9XXXX-XXXX (idêntico curylançamento.com.br)
+  var TEL_RE=/^\((\d{2})\) 9\d{4}-\d{4}$/;
+  var DDDS='11 12 13 14 15 16 17 18 19 21 22 24 27 28 31 32 33 34 35 37 38 41 42 43 44 45 46 47 48 49 51 53 54 55 61 62 63 64 65 66 67 68 69 71 73 74 75 77 79 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99'.split(' ');
+  function maskTel(v){v=v.replace(/\D/g,'').slice(0,11);if(v.length>7)return '('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);if(v.length>2)return '('+v.slice(0,2)+') '+v.slice(2);return v;}
+  function foneValido(v){var m=v.match(TEL_RE);if(!m)return false;if(DDDS.indexOf(m[1])<0)return false;var d=v.replace(/\D/g,'');if(/^(\d)\1{10}$/.test(d))return false;return true;}
+  (function(){var t=document.getElementById('fone');if(!t)return;var ok=document.getElementById('fone-ok');
+    t.addEventListener('input',function(){t.value=maskTel(t.value);
+      if(foneValido(t.value)){t.classList.remove('invalid');t.classList.add('valid');
+        ok.textContent='✓ Número de WhatsApp válido';
+      } else { t.classList.remove('valid'); }});
+    t.addEventListener('blur',function(){if(t.value&&!foneValido(t.value)){t.classList.add('invalid');}});
+  })();
 
   window.enviarLead=function(ev){
     ev.preventDefault();
