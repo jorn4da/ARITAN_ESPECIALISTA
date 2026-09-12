@@ -11,6 +11,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- ===== Mensuração (Google Analytics 4) ===== -->
+<!-- Troque G-XXXXXXXXXX pelo ID de medição do fluxo "Aritan Especialista" no GA4 -->
+<script>window.GA_ID='G-2GEJSERC6B';</script>
+<script>
+(function(){var id=window.GA_ID;
+  if(!id||id.indexOf('G-')!==0||/X{4,}/.test(id))return; // só ativa com ID real
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+  gtag('js',new Date());gtag('config',id);
+})();
+</script>
 <style>
 :root{
   --azul:#062E6E; --azul-dark:#0A387D; --grafite:#1E1C1D; --off:#F3F7FA;
@@ -449,7 +461,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
         <div class="soc">
           <a href="https://www.instagram.com/aritan_especialista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.96-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg></a>
           <a href="https://www.tiktok.com/@aritan_especialista" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.53 2.53 0 1 1-2.53-2.53c.26 0 .5.04.74.11V9.8a5.7 5.7 0 0 0-.74-.05 5.63 5.63 0 1 0 5.63 5.63V9.01a7.34 7.34 0 0 0 4.29 1.37V7.28a4.28 4.28 0 0 1-3.23-1.46z"/></svg></a>
-          <a href="https://www.facebook.com/search/top?q=Aritan%20Especialista" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.facebook.com/share/1DvEGjgMCs/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
         </div>
       </div>
       <div>
@@ -487,7 +499,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
   }
   function waLink(ctx){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(msg(ctx));}
   document.querySelectorAll('[data-wa]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();window.open(waLink(a.getAttribute('data-wa-ctx')),'_blank');});
+    a.addEventListener('click',function(e){e.preventDefault();if(window.gtag)gtag('event','clique_whatsapp',{origem:a.getAttribute('data-wa-ctx')||'geral'});window.open(waLink(a.getAttribute('data-wa-ctx')),'_blank');});
   });
   document.getElementById('ano').textContent=new Date().getFullYear();
 
@@ -513,6 +525,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
     var r=document.getElementById('renda').value;
     var btn=document.getElementById('leadBtn'); if(btn){btn.disabled=true;btn.textContent='Enviando...';}
     if(window.dataLayer)dataLayer.push({event:'generate_lead',form_origin:'aritan-lp'});
+    if(window.gtag)gtag('event','gerar_lead',{objetivo:obj,renda:r});
     if(window.fbq)fbq('track','Lead');
     function ok(){document.getElementById('leadForm').style.display='none';document.getElementById('formOk').style.display='block';}
     fetch('https://formsubmit.co/ajax/imoveisjornada@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Novo lead | Aritan Especialista',Nome:n,WhatsApp:f.value,Objetivo:obj,'Renda familiar':r,Origem:location.href,_template:'table',_captcha:'false'})})
@@ -551,7 +564,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
   ['s-valor','s-entrada'].forEach(function(id){maskMoney(document.getElementById(id));});
   document.getElementById('s-perfil').addEventListener('change',calc);
   document.getElementById('s-prazo').addEventListener('change',calc);
-  document.getElementById('s-calc').addEventListener('click',function(e){e.preventDefault();calc();});
+  document.getElementById('s-calc').addEventListener('click',function(e){e.preventDefault();if(window.gtag)gtag('event','usar_simulador',{perfil:document.getElementById('s-perfil').value});calc();});
   calc();
 })();
 </script>
