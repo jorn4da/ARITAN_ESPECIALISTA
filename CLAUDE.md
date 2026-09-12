@@ -1,33 +1,41 @@
 # Projeto — Aritan Especialista (Landing Page pessoal)
 
 ## O que é
-Página de vendas pessoal do Aritan (marca Aritan Especialista) para captar leads de
-financiamento / casa própria (público renda a partir de R$ 5 mil) em Niterói e RJ.
-Inclui história (+15 anos), gatilhos de conversão, simulador MCMV/SBPE, formulário
-com verificação de telefone e WhatsApp.
+Landing page de vendas da marca pessoal do Aritan (não é empreendimento Cury).
+Capta leads para financiamento / casa própria (renda a partir de R$ 5 mil), Niterói e RJ.
+História (+15 anos), gatilhos de conversão, simulador MCMV/SBPE, formulário com
+verificação de telefone, WhatsApp.
 
-## Papel do Claude
-Desenvolvedor sênior: entender o problema, propor, apontar riscos, só então implementar.
-Código limpo, modular e seguro.
+## No ar
+- Repositório: github.com/jorn4da/ARITAN_ESPECIALISTA
+- Site (Netlify): https://4ritan.netlify.app/
 
 ## Stack
-HTML/CSS/JS estático (single page). Imagens em `img/`. Fontes Montserrat + Inter.
-Deploy via GitHub (Pages/Netlify) — repo jorn4da/ARITAN_ESPECIALISTA.
-
-## Preferências de resposta
-- Direto, bullet points. Sem jargão de IA e sem travessão. Terminar com próximo passo.
-
-## REGRA FIXA — Base de conhecimento primeiro
-ANTES de qualquer atualização ou alteração neste projeto, ATUALIZAR a base de
-conhecimento e só então prosseguir:
-1. Nota do projeto no Obsidian: `Cerebro-Claude/01-Projetos/Projeto - Aritan Especialista (LP pessoal).md`
-2. Memória do projeto (project memory / Cowork).
-Depois de aplicar a mudança, registrar o que mudou nas duas.
+HTML/CSS/JS estático, página única. Imagens em `img/`. Fontes Montserrat + Inter.
+Paleta: #062E6E, #0A387D, #12151C (fundo escuro premium), #F3F7FA.
 
 ## Publicar
-Rodar `PUBLICAR-ARITAN.command` (dois cliques) — faz commit e push para
-jorn4da/ARITAN_ESPECIALISTA.
+Rodar `PUBLICAR-ARITAN.command` (dois cliques ou `bash "<caminho>/PUBLICAR-ARITAN.command"`).
+Commit + push → o Netlify redeploya sozinho.
+
+## Mensuração
+- GA4: ID de medição `G-2GEJSERC6B` (fluxo "Aritan Especialista", propriedade jornadaconsultoria.com.br). Definido em `window.GA_ID` no topo do index.html.
+- Meta Pixel: `1902592370422998` (PageView + Lead + Contact).
+- Eventos GA4: `clique_whatsapp`, `gerar_lead`, `usar_simulador`.
+- Painel privado (Looker Studio): https://lookerstudio.google.com/reporting/ee7e1c80-8ad9-479e-8029-c83ac625a32f (filtro Hostname contém 4ritan.netlify.app). Link discreto "Painel" no rodapé.
+
+## Contatos e integrações
+- WhatsApp/Tel: (21) 95943-4519 · Leads: formsubmit.co → imoveisjornada@gmail.com
+- Redes: instagram.com/aritan_especialista · tiktok.com/@aritan_especialista · facebook.com/share/1DvEGjgMCs/
+
+## Pendências
+- CRECI (hoje "informar"); depoimentos ilustrativos → trocar por reais.
+
+## REGRA FIXA — Base de conhecimento primeiro
+Antes de QUALQUER alteração: atualizar a nota do projeto no Obsidian
+(`Cerebro-Claude/01-Projetos/Projeto - Aritan Especialista (LP pessoal).md`) e a
+memória do projeto ANTES de prosseguir; registrar o que mudou depois.
 
 ## Regras fixas
 - Backup antes de alterar código. Nunca commitar `.env`, tokens ou segredos.
-- Depoimentos e CRECI: confirmar dados reais antes de divulgar (hoje são ilustrativos).
+- Direto, bullet points, sem jargão de IA e sem travessão, sempre com próximo passo.
