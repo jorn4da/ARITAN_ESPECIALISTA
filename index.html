@@ -23,6 +23,16 @@
   gtag('js',new Date());gtag('config',id);
 })();
 </script>
+<!-- ===== Meta Pixel ===== -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1902592370422998');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1902592370422998&ev=PageView&noscript=1"/></noscript>
 <style>
 :root{
   --azul:#062E6E; --azul-dark:#0A387D; --grafite:#1E1C1D; --off:#F3F7FA;
@@ -479,7 +489,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
       </div>
     </div>
     <div class="base">
-      <span>© <span id="ano"></span> Aritan Especialista. Todos os direitos reservados.</span>
+      <span>© <span id="ano"></span> Aritan Especialista. Todos os direitos reservados. <a href="https://lookerstudio.google.com/reporting/ee7e1c80-8ad9-479e-8029-c83ac625a32f" target="_blank" rel="noopener" style="color:rgba(255,255,255,.28);text-decoration:none">·&nbsp;Painel</a></span>
       <span>Imagens e condições sujeitas a análise de crédito e disponibilidade.</span>
     </div>
   </div>
@@ -499,7 +509,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-siz
   }
   function waLink(ctx){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(msg(ctx));}
   document.querySelectorAll('[data-wa]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();if(window.gtag)gtag('event','clique_whatsapp',{origem:a.getAttribute('data-wa-ctx')||'geral'});window.open(waLink(a.getAttribute('data-wa-ctx')),'_blank');});
+    a.addEventListener('click',function(e){e.preventDefault();if(window.gtag)gtag('event','clique_whatsapp',{origem:a.getAttribute('data-wa-ctx')||'geral'});if(window.fbq)fbq('track','Contact');window.open(waLink(a.getAttribute('data-wa-ctx')),'_blank');});
   });
   document.getElementById('ano').textContent=new Date().getFullYear();
 
